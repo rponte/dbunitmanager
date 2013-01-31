@@ -24,30 +24,37 @@ public class DefaultDbUnitManagerImpl implements DbUnitManager {
 		this.dataSetResolver = dataSetResolver;
 	}
 	
+	@Override
 	public void refresh(String dbUnitXmlPath) {
 		execute(REFRESH, dbUnitXmlPath);
 	}
 
+	@Override
 	public void cleanAndInsert(String dbUnitXmlPath) {
 		execute(CLEAN_INSERT, dbUnitXmlPath);
 	}
 
+	@Override
 	public void insert(String dbUnitXmlPath) {
 		execute(INSERT, dbUnitXmlPath);
 	}
 
+	@Override
 	public void update(String dbUnitXmlPath) {
 		execute(UPDATE, dbUnitXmlPath);
 	}
 
+	@Override
 	public void delete(String dbUnitXmlPath) {
 		execute(DELETE, dbUnitXmlPath);
 	}
-
+	
+	@Override
 	public void deleteAll(String dbUnitXmlPath) {
 		execute(DELETE_ALL, dbUnitXmlPath);
 	}
 	
+	@Override
 	public void truncate(String dbUnitXmlPath) {
 		execute(TRUNCATE_TABLE, dbUnitXmlPath);
 	}
