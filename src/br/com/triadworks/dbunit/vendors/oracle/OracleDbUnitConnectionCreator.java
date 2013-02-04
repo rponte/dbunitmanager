@@ -1,4 +1,4 @@
-package br.com.triadworks.dbunit.vendors;
+package br.com.triadworks.dbunit.vendors.oracle;
 
 import java.sql.Connection;
 
