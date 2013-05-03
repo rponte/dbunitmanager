@@ -1,5 +1,6 @@
 package br.com.triadworks.dbunit.dataset;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -13,21 +14,12 @@ public class ClassEntryDataSetSource implements DataSetSource {
 
 	@Override
 	public InputStream getInputStream() throws IOException {
+		String xmlName = clazz.getSimpleName() + ".xml";
+		InputStream input = clazz.getResourceAsStream(xmlName);
+		if (input == null)
+			throw new FileNotFoundException("DataSet cannot be opened because it does not exist.");
 		
-		String packagePath = classPackageAsResourcePath();
-		String xmlName = String.format("%s/%s.xml", packagePath, clazz.getSimpleName());
-		
-		return clazz.getResourceAsStream(xmlName);
-	}
-	
-	private String classPackageAsResourcePath() {
-		String className = clazz.getName();
-		int packageEndIndex = className.lastIndexOf('.');
-		if (packageEndIndex == -1) {
-			return "";
-		}
-		String packageName = className.substring(0, packageEndIndex);
-		return packageName.replace('.', '/');
+		return input;
 	}
 
 }
