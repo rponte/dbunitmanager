@@ -14,7 +14,7 @@ public class ClassPathDataSetSource implements DataSetSource {
 
 	@Override
 	public InputStream getInputStream() throws IOException {
-		InputStream	is = getClassLoader().getResourceAsStream(this.path);
+		InputStream is = getClassLoader().getResourceAsStream(this.path);
 		if (is == null) {
 			throw new FileNotFoundException("DataSet cannot be opened because it does not exist.");
 		}
