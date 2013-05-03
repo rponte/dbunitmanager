@@ -1,17 +1,17 @@
 package br.com.triadworks.dbunit.resolver;
 
-import java.io.FileInputStream;
-
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ReplacementDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 
+import br.com.triadworks.dbunit.dataset.DataSetSource;
+
 public class DefaultDbUnitDataSetResolver implements DbUnitDataSetResolver {
 
 	@Override
-	public IDataSet resolve(String dataSetXmlPath) {
-		FlatXmlDataSet dataSet = buildDataSet(dataSetXmlPath);
+	public IDataSet resolve(DataSetSource source) {
+		FlatXmlDataSet dataSet = buildDataSet(source);
 		ReplacementDataSet replacement = configureReplacement(dataSet);
 		return replacement;
 	}
@@ -22,9 +22,9 @@ public class DefaultDbUnitDataSetResolver implements DbUnitDataSetResolver {
 		return replacement;
 	}
 
-	private FlatXmlDataSet buildDataSet(String dataSetXmlPath){
+	private FlatXmlDataSet buildDataSet(DataSetSource source) {
 		try {
-			return new FlatXmlDataSetBuilder().build(new FileInputStream(dataSetXmlPath));
+			return new FlatXmlDataSetBuilder().build(source.getInputStream());
 		} catch (Exception e) {
 			throw new IllegalStateException(
 					"It's not possible to create DbUnit dataset: " 

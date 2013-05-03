@@ -11,7 +11,9 @@ import static org.dbunit.operation.DatabaseOperation.UPDATE;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.operation.DatabaseOperation;
+
 import br.com.triadworks.dbunit.connection.DbUnitConnectionCreator;
+import br.com.triadworks.dbunit.dataset.DataSetSource;
 import br.com.triadworks.dbunit.resolver.DbUnitDataSetResolver;
 
 public class DefaultDbUnitManagerImpl implements DbUnitManager {
@@ -25,48 +27,48 @@ public class DefaultDbUnitManagerImpl implements DbUnitManager {
 	}
 	
 	@Override
-	public void refresh(String dbUnitXmlPath) {
-		execute(REFRESH, dbUnitXmlPath);
+	public void refresh(DataSetSource dataSetSource) {
+		execute(REFRESH, dataSetSource);
 	}
 
 	@Override
-	public void cleanAndInsert(String dbUnitXmlPath) {
-		execute(CLEAN_INSERT, dbUnitXmlPath);
+	public void cleanAndInsert(DataSetSource dataSetSource) {
+		execute(CLEAN_INSERT, dataSetSource);
 	}
 
 	@Override
-	public void insert(String dbUnitXmlPath) {
-		execute(INSERT, dbUnitXmlPath);
+	public void insert(DataSetSource dataSetSource) {
+		execute(INSERT, dataSetSource);
 	}
 
 	@Override
-	public void update(String dbUnitXmlPath) {
-		execute(UPDATE, dbUnitXmlPath);
+	public void update(DataSetSource dataSetSource) {
+		execute(UPDATE, dataSetSource);
 	}
 
 	@Override
-	public void delete(String dbUnitXmlPath) {
-		execute(DELETE, dbUnitXmlPath);
+	public void delete(DataSetSource dataSetSource) {
+		execute(DELETE, dataSetSource);
 	}
 	
 	@Override
-	public void deleteAll(String dbUnitXmlPath) {
-		execute(DELETE_ALL, dbUnitXmlPath);
+	public void deleteAll(DataSetSource dataSetSource) {
+		execute(DELETE_ALL, dataSetSource);
 	}
 	
 	@Override
-	public void truncate(String dbUnitXmlPath) {
-		execute(TRUNCATE_TABLE, dbUnitXmlPath);
+	public void truncate(DataSetSource dataSetSource) {
+		execute(TRUNCATE_TABLE, dataSetSource);
 	}
 	
 	/**
 	 * Executes DbUnit <code>operation</code> on dataset
-	 * <code>dbUnitXmlPath</code>.
+	 * <code>dataSetSource</code>.
 	 */
-	protected void execute(DatabaseOperation operation, String dbUnitXmlPath) {
+	protected void execute(DatabaseOperation operation, DataSetSource dataSetSource) {
 		IDatabaseConnection dbconn = connectionCreator.create();
 		try {
-			operation.execute(dbconn, findDataSet(dbUnitXmlPath));
+			operation.execute(dbconn, findDataSet(dataSetSource));
 		} catch (Exception e) {
 			throw new IllegalStateException(
 					"It's not possible to execute DbUnit operation: " 
@@ -76,8 +78,8 @@ public class DefaultDbUnitManagerImpl implements DbUnitManager {
 		}
 	}
 	
-	protected IDataSet findDataSet(String dbUnitXmlPath) {
-		return dataSetResolver.resolve(dbUnitXmlPath);
+	protected IDataSet findDataSet(DataSetSource dataSetSource) {
+		return dataSetResolver.resolve(dataSetSource);
 	}
 
 }

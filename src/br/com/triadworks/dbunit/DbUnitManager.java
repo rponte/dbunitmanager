@@ -1,5 +1,7 @@
 package br.com.triadworks.dbunit;
 
+import br.com.triadworks.dbunit.dataset.DataSetSource;
+
 public interface DbUnitManager {
 
 	/**
@@ -11,7 +13,7 @@ public interface DbUnitManager {
 	 * can even be performed on a populated database like a copy of a production
 	 * database.
 	 */
-	public void refresh(String dbUnitXmlPath);
+	public void refresh(DataSetSource dataSetSource);
 
 	/**
 	 * Performs a DELETE_ALL operation followed by an INSERT operation. This is
@@ -19,7 +21,7 @@ public interface DbUnitManager {
 	 * is appropriate for tests that require the database to only contain a
 	 * specific set of data.
 	 */
-	public void cleanAndInsert(String dbUnitXmlPath);
+	public void cleanAndInsert(DataSetSource dataSetSource);
 	
 	/**
 	 * Inserts the dataset contents into the database. This operation assumes
@@ -27,21 +29,21 @@ public interface DbUnitManager {
 	 * is not the case. To prevent problems with foreign keys, tables must be
 	 * sequenced appropriately in the dataset.
 	 */
-	public void insert(String dbUnitXmlPath);
+	public void insert(DataSetSource dataSetSource);
 	
 	/**
 	 * Updates the database from the dataset contents. This operation assumes
 	 * that table data already exists in the target database and fails if this
 	 * is not the case.
 	 */
-	public void update(String dbUnitXmlPath);
+	public void update(DataSetSource dataSetSource);
 
 	/**
 	 * Deletes only the dataset contents from the database. This operation does
 	 * not delete the entire table contents but only data that are present in
 	 * the dataset.
 	 */
-	public void delete(String dbUnitXmlPath);
+	public void delete(DataSetSource dataSetSource);
 
 	/**
 	 * Deletes all rows of tables present in the specified dataset. If the
@@ -49,13 +51,13 @@ public interface DbUnitManager {
 	 * the database, the database table is not affected. Table are truncated in
 	 * reverse sequence.
 	 */
-	public void deleteAll(String dbUnitXmlPath);
+	public void deleteAll(DataSetSource dataSetSource);
 	
 	/**
 	 * Truncates tables present in the specified dataset. If the dataset does not
 	 * contains a particular table, but that table exists in the database, the
 	 * database table is not affected. Table are truncated in reverse sequence.
 	 */
-	public void truncate(String dbUnitXmlPath);
+	public void truncate(DataSetSource dataSetSource);
 
 }

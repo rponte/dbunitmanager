@@ -7,6 +7,7 @@ import org.dbunit.ext.mssql.InsertIdentityOperation;
 import br.com.triadworks.dbunit.DefaultDbUnitManagerImpl;
 import br.com.triadworks.dbunit.connection.CachedDbUnitConnectionCreator;
 import br.com.triadworks.dbunit.connection.DbUnitConnectionCreator;
+import br.com.triadworks.dbunit.dataset.DataSetSource;
 import br.com.triadworks.dbunit.resolver.DbUnitDataSetResolver;
 import br.com.triadworks.dbunit.resolver.DefaultDbUnitDataSetResolver;
 
@@ -23,18 +24,18 @@ public class MsSqlServerDbUnitManagerImpl extends DefaultDbUnitManagerImpl {
 	}
 
 	@Override
-	public void cleanAndInsert(String dbUnitXmlPath) {
-		execute(InsertIdentityOperation.CLEAN_INSERT, dbUnitXmlPath);
+	public void cleanAndInsert(DataSetSource dataSetSource) {
+		execute(InsertIdentityOperation.CLEAN_INSERT, dataSetSource);
 	}
 	
 	@Override
-	public void insert(String dbUnitXmlPath) {
-		execute(InsertIdentityOperation.INSERT, dbUnitXmlPath);
+	public void insert(DataSetSource dataSetSource) {
+		execute(InsertIdentityOperation.INSERT, dataSetSource);
 	}
 	
 	@Override
-	public void refresh(String dbUnitXmlPath) {
-		execute(InsertIdentityOperation.REFRESH, dbUnitXmlPath);
+	public void refresh(DataSetSource dataSetSource) {
+		execute(InsertIdentityOperation.REFRESH, dataSetSource);
 	}
 	
 }
