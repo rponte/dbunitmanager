@@ -66,8 +66,9 @@ public class DefaultDbUnitManagerImpl implements DbUnitManager {
 	 * <code>dataSetSource</code>.
 	 */
 	protected void execute(DatabaseOperation operation, DataSetSource dataSetSource) {
-		IDatabaseConnection dbconn = connectionCreator.create();
+		IDatabaseConnection dbconn = null;
 		try {
+			dbconn = connectionCreator.create();
 			operation.execute(dbconn, findDataSet(dataSetSource));
 		} catch (Exception e) {
 			throw new IllegalStateException(
