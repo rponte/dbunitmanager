@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class FileSystemDataSetSourceTest {
 
-	private static final File DATASET = new File("test/unit/rootDataSet.xml");
+	private static final File DATASET = new File("src/test/resources/rootDataSet.xml");
 
 	@Test
 	public void shouldFindDataSetInTheFileSystem() throws IOException {
