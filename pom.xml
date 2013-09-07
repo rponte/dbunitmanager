@@ -5,8 +5,43 @@
 	<artifactId>dbunitmanager</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
+	
 	<name>DbUnitManager</name>
-	<url>http://maven.apache.org</url>
+	<description>Simple wrapper for DbUnit to make developer's life easier when writing integration tests</description>
+	<url>https://github.com/rponte/dbunitmanager</url>
+	
+	<developers>
+		<developer>
+			<id>rponte</id>
+			<name>Rafael Ponte</name>
+			<email>rponte@triadworks.com.br</email>
+			<organization>TriadWorks</organization>
+			<organizationUrl>http://www.triadworks.com.br</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-3</timezone>
+		</developer>
+	</developers>
+	
+	<organization>
+		<name>TriadWorks</name>
+		<url>http://www.triadworks.com.br</url>
+	</organization>
+	
+	<licenses>
+		<license>
+			<distribution>repo</distribution>
+			<name>Apache License, Version 2.0</name>
+			<url>http://apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	
+	<scm>
+		<url>http://github.com/rponte/dbunitmanager</url>
+		<connection>scm:git:git://github.com/rponte/dbunitmanager</connection>
+		<developerConnection>scm:git:git@github.com:rponte/dbunitmanager.git</developerConnection>
+	</scm>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
