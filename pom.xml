@@ -11,6 +11,12 @@
 	<description>Simple wrapper for DbUnit to make developer's life easier when writing integration tests</description>
 	<url>https://github.com/rponte/dbunitmanager</url>
 	
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+	
 	<developers>
 		<developer>
 			<id>rponte</id>
