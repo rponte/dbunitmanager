@@ -7,7 +7,6 @@ Using it
 --------
 
 1. Configure your pom.xml file to find DbUnitManager:
-
 ```xml
 <repositories>
 	<repository>
@@ -30,7 +29,6 @@ Using it
 ```
 
 2. Use it in your integration testcase java class
-
 ```java
 public class ProductsDaoTest {
 
@@ -58,23 +56,23 @@ public class ProductsDaoTest {
 DataSetSource strategies
 ------------------------
 
-DbUnit uses a dataset (basically a XML file) to know what are the tables it should work with. DbUnitManager folllows the same idea, however it uses a simple abstraction called `DataSetSource`. DataSetSource is an interface which will help developers to find datasets in theirs projects, may be them located in classpath, file system or elsewhere you want to.
+DbUnit uses a dataset (basically a XML file) to know what are the tables it should work with. DbUnitManager folllows the same idea, however it uses a simple abstraction called **DataSetSource**. DataSetSource is an interface which will help developers to find datasets in theirs projects, may be them located in classpath, file system or elsewhere they want to.
 
 So far DbUnitManager comes with three DataSetSource implementations:
 
-** ClassPathDataSetSource
+* ClassPathDataSetSource
 	- The ClassPathDataSetSource represents a dataset which should be obtained from the classpath.
 ```java
 dbUnitManager.cleanAndInsert(new ClassPathDataSetSource("br/com/triadworks/xmls/Products.xml"));
 ```
 
-** FileSystemDataSetSource
+* FileSystemDataSetSource
 	- The FileSystemDataSetSource represents a dataset which should be obtained from the file system.
 ```java
 dbUnitManager.cleanAndInsert(new FileSystemDataSetSource("/home/rponte/Products.xml"));
 ```
 
-** ClassEntryDataSetSource
+* ClassEntryDataSetSource
 	- The ClassEntryDataSetSource represents a dataset which should be obtained from the classpath but offering you a simple Convention-Over-Configuration (CoC). The convention simply says the dataset must be in the same package of the class argument passed for the ClassEntryDataSetSource.
 ```java
 dbUnitManager.cleanAndInsert(new ClassEntryDataSetSource(ProductsDaoTest.class));
