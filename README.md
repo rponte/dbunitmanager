@@ -6,9 +6,8 @@ It's a simple wrapper for [DbUnit](http://www.dbunit.org/) to make developer's l
 Using it
 --------
 
-1. Configure your pom.xml file to find DbUnitManager:
-
-```xml
+Configure your pom.xml file to find DbUnitManager dependency:
+```XML
 <repositories>
 	<repository>
     	<id>sonatype-oss-public</id>
@@ -28,8 +27,8 @@ Using it
   	<version>1.0-SNAPSHOT</version>
 </dependency>
 ```
-2. Use it in your integration testcase java class
 
+Use it in your integration testcase java class:
 ```java
 public class ProductsDaoTest {
 
@@ -61,28 +60,41 @@ DbUnit uses a dataset (basically a XML file) to know what are the tables it shou
 
 So far DbUnitManager comes with three DataSetSource implementations:
 
-* ClassPathDataSetSource
+* **ClassPathDataSetSource**
 	- The ClassPathDataSetSource represents a dataset which should be obtained from the classpath.
 
 ```java
 dbUnitManager.cleanAndInsert(new ClassPathDataSetSource("br/com/triadworks/xmls/Products.xml"));
 ```
 
-* FileSystemDataSetSource
+* **FileSystemDataSetSource**
 	- The FileSystemDataSetSource represents a dataset which should be obtained from the file system.
 
 ```java
 dbUnitManager.cleanAndInsert(new FileSystemDataSetSource("/home/rponte/Products.xml"));
 ```
 
-* ClassEntryDataSetSource
+* **ClassEntryDataSetSource**
 	- The ClassEntryDataSetSource represents a dataset which should be obtained from the classpath but offering you a simple Convention-Over-Configuration (CoC). The convention simply says the dataset must be in the same package of the class argument passed for the ClassEntryDataSetSource.
 
 ```java
 dbUnitManager.cleanAndInsert(new ClassEntryDataSetSource(ProductsDaoTest.class));
 ```
 
-In my humble opinion, the best and organized way to work with DbUnit (and DbUnitManager as well) is creating a single dataset for each testcase. This way it's possible to keep each testcase independent and isolated from each other. So using ClassEntryDataSetSource will give you and your team a way to work following a simple convention.
+In my humble opinion, the best and organized way to work with DbUnit (and DbUnitManager as well) is creating a single dataset for each testcase. This way it's possible to keep each testcase independent and isolated from each other. So using ClassEntryDataSetSource will give you and your team a chance to work following a simple convention.
+
+Developer's info
+----------------
+
+This a Maven project, so you just need to run:
+```SH
+$ mvn package
+```
+If you want to import the project into Eclipse, just run and start collaborating:
+```SH
+$ mvn eclipse:eclipse
+```
+
 
 
 
