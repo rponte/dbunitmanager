@@ -7,6 +7,7 @@ Using it
 --------
 
 1. Configure your pom.xml file to find DbUnitManager:
+
 ```xml
 <repositories>
 	<repository>
@@ -27,8 +28,8 @@ Using it
   	<version>1.0-SNAPSHOT</version>
 </dependency>
 ```
-
 2. Use it in your integration testcase java class
+
 ```java
 public class ProductsDaoTest {
 
@@ -62,18 +63,21 @@ So far DbUnitManager comes with three DataSetSource implementations:
 
 * ClassPathDataSetSource
 	- The ClassPathDataSetSource represents a dataset which should be obtained from the classpath.
+
 ```java
 dbUnitManager.cleanAndInsert(new ClassPathDataSetSource("br/com/triadworks/xmls/Products.xml"));
 ```
 
 * FileSystemDataSetSource
 	- The FileSystemDataSetSource represents a dataset which should be obtained from the file system.
+
 ```java
 dbUnitManager.cleanAndInsert(new FileSystemDataSetSource("/home/rponte/Products.xml"));
 ```
 
 * ClassEntryDataSetSource
 	- The ClassEntryDataSetSource represents a dataset which should be obtained from the classpath but offering you a simple Convention-Over-Configuration (CoC). The convention simply says the dataset must be in the same package of the class argument passed for the ClassEntryDataSetSource.
+
 ```java
 dbUnitManager.cleanAndInsert(new ClassEntryDataSetSource(ProductsDaoTest.class));
 ```
