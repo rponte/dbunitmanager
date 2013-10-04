@@ -1,21 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>br.com.triadworks</groupId>
 	<artifactId>dbunitmanager</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.1-SNAPSHOT</version>
-	
+
 	<name>DbUnitManager</name>
 	<description>Simple wrapper for DbUnit to make developer's life easier when writing integration tests</description>
 	<url>https://github.com/rponte/dbunitmanager</url>
-	
+
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
-	
+
 	<developers>
 		<developer>
 			<id>rponte</id>
@@ -29,12 +30,12 @@
 			<timezone>-3</timezone>
 		</developer>
 	</developers>
-	
+
 	<organization>
 		<name>TriadWorks</name>
 		<url>http://www.triadworks.com.br</url>
 	</organization>
-	
+
 	<licenses>
 		<license>
 			<distribution>repo</distribution>
@@ -42,19 +43,19 @@
 			<url>http://apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
-	
+
 	<scm>
 		<url>http://github.com/rponte/dbunitmanager</url>
 		<connection>scm:git:git://github.com/rponte/dbunitmanager</connection>
 		<developerConnection>scm:git:git@github.com:rponte/dbunitmanager.git</developerConnection>
 	</scm>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<props.compile.jdk.source>1.7</props.compile.jdk.source>
 		<props.compile.jdk.target>1.7</props.compile.jdk.target>
 	</properties>
-	
+
 	<dependencies>
 		<!-- ************************ -->
 		<!-- PRODUCTION DEPENDENCIES -->
@@ -85,7 +86,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<!-- ************************ -->
@@ -103,8 +104,8 @@
 					<debug>true</debug>
 					<debuglevel>vars,lines,source</debuglevel>
 				</configuration>
-		    </plugin>
-		    <plugin>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.1.2</version>
@@ -129,10 +130,10 @@
 					</execution>
 				</executions>
 			</plugin>
-		    <!-- ************************ -->
+			<!-- ************************ -->
 			<!-- ECLIPSE IDE CONFIGS -->
 			<!-- ************************ -->
-		    <plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.9</version>
@@ -145,7 +146,7 @@
 					<additionalProjectFacets>
 						<jst.java>${props.compile.jdk.source}</jst.java>
 					</additionalProjectFacets>
-           			<!-- Set Eclipse project to UTF-8 -->
+					<!-- Set Eclipse project to UTF-8 -->
 					<additionalConfig>
 						<file>
 							<name>.settings/org.eclipse.core.resources.prefs</name>
@@ -158,5 +159,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
