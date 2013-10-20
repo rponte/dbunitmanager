@@ -1,6 +1,8 @@
 DbUnitManager
 =============
 
+![Build status](https://api.travis-ci.org/rponte/dbunitmanager.png)
+
 It's a simple wrapper for [DbUnit](http://www.dbunit.org/) to make developer's life easier when writing integration tests.
 
 Using it
