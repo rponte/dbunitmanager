@@ -52,8 +52,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<props.compile.jdk.source>1.7</props.compile.jdk.source>
-		<props.compile.jdk.target>1.7</props.compile.jdk.target>
+		<props.compile.jdk.source>1.6</props.compile.jdk.source>
+		<props.compile.jdk.target>1.6</props.compile.jdk.target>
 	</properties>
 
 	<dependencies>
