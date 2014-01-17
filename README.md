@@ -8,7 +8,7 @@ It's a simple wrapper for [DbUnit](http://www.dbunit.org/) to make developer's l
 Using it
 --------
 
-Configure your pom.xml file to find DbUnitManager dependency:
+Configure your `pom.xml` file to find DbUnitManager dependency:
 ```XML
 <repositories>
 	<repository>
@@ -58,7 +58,7 @@ public class ProductsDaoTest {
 DataSetSource strategies
 ------------------------
 
-DbUnit uses a dataset (basically a XML file) to know what are the tables it should work with. DbUnitManager folllows the same idea, however it uses a simple abstraction called **DataSetSource**. DataSetSource is an interface which will help developers to find datasets in theirs projects, may be them located in classpath, file system or elsewhere they want to.
+DbUnit uses a dataset (basically a XML file) to know what are the tables it should work with. DbUnitManager folllows the same idea, however it uses a simple abstraction called **DataSetSource**. DataSetSource is an interface which will help developers to find datasets in their projects, may be them located in classpath, file system or elsewhere they want to.
 
 So far DbUnitManager comes with three DataSetSource implementations:
 
@@ -83,7 +83,7 @@ dbUnitManager.cleanAndInsert(new FileSystemDataSetSource("/home/rponte/Products.
 dbUnitManager.cleanAndInsert(new ClassEntryDataSetSource(ProductsDaoTest.class));
 ```
 
-In my humble opinion, the best and organized way to work with DbUnit (and DbUnitManager as well) is creating a single dataset for each testcase. This way it's possible to keep each testcase independent and isolated from each other. So using ClassEntryDataSetSource will give you and your team a chance to work following a simple convention.
+In my humble opinion, the best and organized way to work with DbUnit (and DbUnitManager as well) is creating a single dataset for each testcase. This way it's possible to keep each testcase independent and isolated from each other. So using `ClassEntryDataSetSource` will give you and your team a chance to work following a simple convention.
 
 Developer's info
 ----------------
