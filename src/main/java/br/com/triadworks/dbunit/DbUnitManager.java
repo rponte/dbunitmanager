@@ -12,6 +12,9 @@ public interface DbUnitManager {
 	 * in the database. if they are correctly written, tests using this strategy
 	 * can even be performed on a populated database like a copy of a production
 	 * database.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void refresh(DataSetSource dataSetSource);
 
@@ -20,6 +23,9 @@ public interface DbUnitManager {
 	 * the safest approach to ensure that the database is in a known state. This
 	 * is appropriate for tests that require the database to only contain a
 	 * specific set of data.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void cleanAndInsert(DataSetSource dataSetSource);
 	
@@ -28,6 +34,9 @@ public interface DbUnitManager {
 	 * that table data does not exist in the target database and fails if this
 	 * is not the case. To prevent problems with foreign keys, tables must be
 	 * sequenced appropriately in the dataset.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void insert(DataSetSource dataSetSource);
 	
@@ -35,6 +44,9 @@ public interface DbUnitManager {
 	 * Updates the database from the dataset contents. This operation assumes
 	 * that table data already exists in the target database and fails if this
 	 * is not the case.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void update(DataSetSource dataSetSource);
 
@@ -42,6 +54,9 @@ public interface DbUnitManager {
 	 * Deletes only the dataset contents from the database. This operation does
 	 * not delete the entire table contents but only data that are present in
 	 * the dataset.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void delete(DataSetSource dataSetSource);
 
@@ -50,6 +65,9 @@ public interface DbUnitManager {
 	 * dataset does not contains a particular table, but that table exists in
 	 * the database, the database table is not affected. Table are truncated in
 	 * reverse sequence.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void deleteAll(DataSetSource dataSetSource);
 	
@@ -57,6 +75,9 @@ public interface DbUnitManager {
 	 * Truncates tables present in the specified dataset. If the dataset does not
 	 * contains a particular table, but that table exists in the database, the
 	 * database table is not affected. Table are truncated in reverse sequence.
+	 * 
+	 * @param dataSetSource
+	 *            the dataset to be used by this operation
 	 */
 	public void truncate(DataSetSource dataSetSource);
 

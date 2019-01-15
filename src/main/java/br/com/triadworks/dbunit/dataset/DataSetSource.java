@@ -8,7 +8,8 @@ public interface DataSetSource {
 	/**
 	 * Returns an input stream of a dataset.
 	 * 
-	 * @throws FileNotFoundException
+	 * @return returns an {@code InputStream} for this dataset
+	 * @throws IOException
 	 *             if unable to find the dataset
 	 */
 	public InputStream getInputStream() throws IOException;
